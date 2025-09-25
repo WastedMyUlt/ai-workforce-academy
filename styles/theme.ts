@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, defineStyle, defineStyleConfig } from '@chakra-ui/react';
 
 // AI Workforce Academy Brand Colors
 const colors = {
@@ -38,22 +38,66 @@ const colors = {
     800: '#66230E',
     900: '#331107',
   },
-  gray: {
-    50: '#F5F7FA', // Light Gray (background)
-    700: '#4A5568',
-    800: '#2D3748', // Dark Gray (text)
-    900: '#1A202C',
-  }
 };
 
-const fonts = {
-  heading: '"Montserrat", sans-serif',
-  body: '"Inter", sans-serif',
-};
+// Define button style configuration
+const Button = defineStyleConfig({
+  baseStyle: {
+    fontWeight: 'bold',
+    borderRadius: 'md',
+  },
+  variants: {
+    solid: {
+      bg: 'brand.500',
+      color: 'white',
+      _hover: {
+        bg: 'brand.600',
+      },
+    },
+    primary: {
+      bg: 'brand.500',
+      color: 'white',
+      _hover: {
+        bg: 'brand.600',
+      },
+    },
+    secondary: {
+      bg: 'secondary.500',
+      color: 'white',
+      _hover: {
+        bg: 'secondary.600',
+      },
+    },
+    accent: {
+      bg: 'accent.500',
+      color: 'white',
+      _hover: {
+        bg: 'accent.600',
+      },
+    },
+    outline: {
+      borderColor: 'brand.500',
+      color: 'brand.500',
+      _hover: {
+        bg: 'brand.50',
+      },
+    },
+  },
+});
+
+// Define heading style configuration
+const Heading = defineStyleConfig({
+  baseStyle: {
+    fontWeight: '700',
+  },
+});
 
 const theme = extendTheme({
   colors,
-  fonts,
+  fonts: {
+    heading: '"Montserrat", sans-serif',
+    body: '"Inter", sans-serif',
+  },
   styles: {
     global: {
       body: {
@@ -63,54 +107,8 @@ const theme = extendTheme({
     },
   },
   components: {
-    Button: {
-      baseStyle: {
-        fontWeight: 'bold',
-        borderRadius: 'md',
-      },
-      variants: {
-        solid: {
-          bg: 'brand.500',
-          color: 'white',
-          _hover: {
-            bg: 'brand.600',
-          },
-        },
-        primary: {
-          bg: 'brand.500',
-          color: 'white',
-          _hover: {
-            bg: 'brand.600',
-          },
-        },
-        secondary: {
-          bg: 'secondary.500',
-          color: 'white',
-          _hover: {
-            bg: 'secondary.600',
-          },
-        },
-        accent: {
-          bg: 'accent.500',
-          color: 'white',
-          _hover: {
-            bg: 'accent.600',
-          },
-        },
-        outline: {
-          borderColor: 'brand.500',
-          color: 'brand.500',
-          _hover: {
-            bg: 'brand.50',
-          },
-        },
-      },
-    },
-    Heading: {
-      baseStyle: {
-        fontWeight: '700',
-      },
-    },
+    Button,
+    Heading,
   },
 });
 
