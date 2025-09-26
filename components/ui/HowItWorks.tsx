@@ -3,8 +3,8 @@ export default function HowItWorks() {
     <div className="py-16 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-[#00B8D4] font-semibold tracking-wide uppercase">Process</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#0B3D91] sm:text-4xl">
+          <h2 className="text-base text-[#8F00FF] font-semibold tracking-wide uppercase">Process</h2>
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-[#3137fd] sm:text-4xl">
             How It Works
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
@@ -15,7 +15,7 @@ export default function HowItWorks() {
         <div className="mt-16">
           <div className="space-y-10">
             <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#0B3D91] text-white text-2xl font-bold p-4 md:p-0">
+              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#3137fd] text-white text-2xl font-bold p-4 md:p-0">
                 1
               </div>
               <div className="p-6">
@@ -27,7 +27,7 @@ export default function HowItWorks() {
             </div>
 
             <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#0B3D91] text-white text-2xl font-bold p-4 md:p-0">
+              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#3137fd] text-white text-2xl font-bold p-4 md:p-0">
                 2
               </div>
               <div className="p-6">
@@ -39,7 +39,7 @@ export default function HowItWorks() {
             </div>
 
             <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#0B3D91] text-white text-2xl font-bold p-4 md:p-0">
+              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#3137fd] text-white text-2xl font-bold p-4 md:p-0">
                 3
               </div>
               <div className="p-6">
@@ -51,7 +51,7 @@ export default function HowItWorks() {
             </div>
 
             <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#0B3D91] text-white text-2xl font-bold p-4 md:p-0">
+              <div className="flex-shrink-0 flex items-center justify-center w-full md:w-16 bg-[#3137fd] text-white text-2xl font-bold p-4 md:p-0">
                 4
               </div>
               <div className="p-6">

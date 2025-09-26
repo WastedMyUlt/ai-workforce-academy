@@ -1,22 +1,39 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Logo from './Logo'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className={`bg-white sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-bold text-[#0B3D91]">AI Workforce Academy</span>
+              <Logo size="small" />
             </Link>
             <nav className="hidden md:ml-10 md:flex md:space-x-8">
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#0B3D91]">
+                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                   AI Agents
                   <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -47,14 +64,14 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#0B3D91]">
+              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                 How It Works
               </Link>
-              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#0B3D91]">
+              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                 Pricing
               </Link>
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#0B3D91]">
+                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                   Resources
                   <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -82,17 +99,17 @@ export default function Header() {
             </nav>
           </div>
           <div className="hidden md:flex items-center">
-            <Link href="#" className="text-sm font-medium text-[#0B3D91] hover:underline">
+            <Link href="#" className="text-sm font-medium text-[#2F80ED] hover:underline">
               Sign In
             </Link>
-            <Link href="#" className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#00B8D4] hover:bg-[#0093A8]">
+            <Link href="#" className="btn-primary ml-8">
               Get Started
             </Link>
           </div>
           <div className="-mr-2 flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#00B8D4]"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2F80ED]"
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (

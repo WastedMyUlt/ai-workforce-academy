@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AI Workforce Academy - Build Your AI Workforce",
   description: "Transform your business with an AI workforce that works 24/7 - learn, build, and deploy without coding skills.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
