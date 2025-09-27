@@ -1,0 +1,3 @@
+# Make.com Workflow Template
+
+This is a placeholder template file. Replace with your actual Make.com blueprint export or instructions.

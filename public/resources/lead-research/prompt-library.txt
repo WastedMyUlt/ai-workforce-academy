@@ -1,0 +1,12 @@
+# Lead Research Agent Prompt Library
+
+Use these prompts to guide your AI agent:
+
+1) Qualification criteria
+- "Score this lead from 0-100 based on ICP: [describe ICP]. Justify the score in 1 sentence."
+
+2) Enrichment
+- "Find the decision maker's name, job title, and verified email for domain: {{domain}}."
+
+3) Personalization
+- "Write a 2-sentence opener referencing a recent post or initiative by {{company}} relevant to {{problem}}."

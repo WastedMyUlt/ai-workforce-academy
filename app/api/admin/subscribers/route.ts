@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getDatabase } from '../../../../lib/db-connection';
+import { getDatabase } from '../../../../../lib/db-connection';
 
 const db = getDatabase();
 

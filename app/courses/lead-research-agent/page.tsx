@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Layout from '../../../components/ui/Layout';
+import '../../../styles/course-page.css';
 
 interface Lesson {
   id: number;
@@ -60,6 +62,27 @@ export default function LeadResearchAgentCourse() {
   const [currentLesson, setCurrentLesson] = useState(1);
   const [completedLessons, setCompletedLessons] = useState<number[]>([]);
 
+  // Load/save progress from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('lead-research-progress')
+      if (saved) {
+        const { current, completed } = JSON.parse(saved)
+        if (typeof current === 'number') setCurrentLesson(current)
+        if (Array.isArray(completed)) setCompletedLessons(completed)
+      }
+    } catch {}
+  }, [])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        'lead-research-progress',
+        JSON.stringify({ current: currentLesson, completed: completedLessons })
+      )
+    } catch {}
+  }, [currentLesson, completedLessons])
+
   const markLessonComplete = (lessonId: number) => {
     if (!completedLessons.includes(lessonId)) {
       setCompletedLessons([...completedLessons, lessonId]);
@@ -90,7 +113,7 @@ export default function LeadResearchAgentCourse() {
               </div>
               <div className="w-32 bg-gray-200 rounded-full h-2">
                 <div 
-                  className="bg-[#2F80ED] h-2 rounded-full transition-all duration-300"
+                  className="lesson-progress-bar h-2 rounded-full transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
@@ -147,16 +170,16 @@ export default function LeadResearchAgentCourse() {
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <h4 className="font-semibold text-gray-900 mb-3">Course Resources</h4>
                 <div className="space-y-2">
-                  <a href="#" className="block text-sm text-[#2F80ED] hover:underline">
+                  <a href="/resources/lead-research/make-workflow-template.txt" download className="block text-sm text-[#2F80ED] hover:underline">
                     📄 Make.com Workflow Template
                   </a>
-                  <a href="#" className="block text-sm text-[#2F80ED] hover:underline">
+                  <a href="/resources/lead-research/google-sheets-template.csv" download className="block text-sm text-[#2F80ED] hover:underline">
                     📊 Google Sheets Template
                   </a>
-                  <a href="#" className="block text-sm text-[#2F80ED] hover:underline">
+                  <a href="/resources/lead-research/prompt-library.txt" download className="block text-sm text-[#2F80ED] hover:underline">
                     🤖 ChatGPT Prompt Library
                   </a>
-                  <a href="#" className="block text-sm text-[#2F80ED] hover:underline">
+                  <a href="/resources/lead-research/setup-checklist.md" download className="block text-sm text-[#2F80ED] hover:underline">
                     📋 Setup Checklist
                   </a>
                 </div>
@@ -168,19 +191,15 @@ export default function LeadResearchAgentCourse() {
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               {/* Video Player Area */}
-              <div className="bg-gray-900 aspect-video flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-20 h-20 bg-[#2F80ED] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{currentLessonData?.title}</h3>
-                  <p className="text-gray-300 mb-4">{currentLessonData?.duration}</p>
-                  <button className="bg-[#2F80ED] text-white px-6 py-3 rounded-lg hover:bg-[#2967c7] transition-colors">
-                    ▶ Play Lesson
-                  </button>
-                </div>
+              <div className="bg-black aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                  title="AI Lead Research Agent Lesson"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
 
               {/* Lesson Content */}

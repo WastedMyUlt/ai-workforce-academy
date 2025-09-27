@@ -26,15 +26,16 @@ export default function Header() {
   return (
     <header className={`bg-white sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex-shrink-0 flex items-center py-2">
               <Image
                 src="/cropped-logo.png"
                 alt="AI Workforce Academy"
-                width={160}
-                height={40}
+                width={240}
+                height={60}
                 priority
+                className="h-auto w-auto max-h-16"
               />
             </Link>
             <nav className="hidden md:ml-10 md:flex md:space-x-8">
@@ -73,12 +74,12 @@ export default function Header() {
               <Link href="/courses" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                 Courses
               </Link>
-              <a href="#how-it-works" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
+              <Link href="/#how-it-works" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 How It Works
-              </a>
-              <a href="#pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
+              </Link>
+              <Link href="/#pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 Pricing
-              </a>
+              </Link>
               <div className="relative group">
                 <button className="inline-flex items-center px-1 pt-1 pb-4 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                   Resources

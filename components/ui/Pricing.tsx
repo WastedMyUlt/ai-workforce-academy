@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(true)
+  const [loadingTier, setLoadingTier] = useState<string | null>(null)
 
   const toggleBilling = () => {
     setAnnual(!annual)
@@ -61,6 +62,33 @@ export default function Pricing() {
     },
   ]
 
+  const toTierKey = (name: string) => name.toUpperCase()
+
+  const startCheckout = async (tierName: string) => {
+    try {
+      setLoadingTier(tierName)
+      const billing = annual ? 'annually' : 'monthly'
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tier: toTierKey(tierName), billing }),
+      })
+      if (!res.ok) throw new Error(`Checkout failed: ${res.status}`)
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        throw new Error('No checkout URL returned')
+      }
+    } catch (e) {
+      alert('Unable to start checkout. Please try again later.')
+      // eslint-disable-next-line no-console
+      console.error(e)
+    } finally {
+      setLoadingTier(null)
+    }
+  }
+
   return (
     <section id="pricing" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -112,16 +140,15 @@ export default function Pricing() {
                   <span className="text-5xl font-extrabold text-gray-900">{annual ? tier.price.annually : tier.price.monthly}</span>
                   <span className="text-lg font-medium text-gray-500">/month</span>
                 </div>
-                <a
-                  href={tier.href}
-                  className={`mt-8 block w-full rounded-md border border-transparent px-6 py-3 text-center text-sm font-medium ${
-                    tier.mostPopular
-                      ? 'btn-primary'
-                      : 'btn-accent'
-                  }`}
+                <button
+                  onClick={() => startCheckout(tier.name)}
+                  disabled={loadingTier === tier.name}
+                  className={`mt-8 w-full rounded-md border border-transparent px-6 py-3 text-center text-sm font-medium ${
+                    tier.mostPopular ? 'btn-primary' : 'btn-accent'
+                  } ${loadingTier === tier.name ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  Get started with {tier.name}
-                </a>
+                  {loadingTier === tier.name ? 'Redirecting...' : `Get started with ${tier.name}`}
+                </button>
               </div>
               <div className="px-6 pt-6 pb-8">
                 <h4 className="text-sm font-medium text-gray-900">What's included</h4>

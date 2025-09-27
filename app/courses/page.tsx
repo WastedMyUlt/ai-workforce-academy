@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import EmailForm from '../../components/ui/EmailForm';
+import Layout from '../../components/ui/Layout';
+import LazySection from '../../components/performance/LazySection';
 
 interface Course {
   id: string;
@@ -192,20 +194,21 @@ export default function CoursesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
-              AI Agent <span className="text-[#2F80ED]">Masterclass</span> Library
-            </h1>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              Build a complete AI workforce with our step-by-step tutorials. Start with our free course, then unlock the full library.
-            </p>
+    <Layout>
+      <div className="min-h-screen bg-gray-50">
+        {/* Header */}
+        <div className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="text-center">
+              <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                AI Workforce <span className="text-[#2F80ED]">Academy</span> Library
+              </h1>
+              <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                Build a complete AI workforce with our step-by-step tutorials. Start with our free course, then unlock the full library.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Value Proposition */}
@@ -358,8 +361,9 @@ export default function CoursesPage() {
         </div>
 
         {/* Course Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.filter(course => !course.isFree).map((course) => (
+        <LazySection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCourses.filter(course => !course.isFree).map((course) => (
             <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover-card relative">
               {/* Lock Overlay */}
               <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center">
@@ -409,7 +413,8 @@ export default function CoursesPage() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        </LazySection>
 
         {/* CTA Section */}
         <div className="mt-16 bg-white rounded-2xl shadow-lg p-8 text-center">
@@ -450,5 +455,6 @@ export default function CoursesPage() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }

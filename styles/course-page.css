@@ -1,0 +1,46 @@
+/* Course page specific styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.lesson-progress-bar {
+  background: linear-gradient(90deg, #2F80ED 0%, #9B51E0 100%);
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.course-resource-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #2F80ED;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.course-resource-link:hover {
+  background: #2F80ED;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(47, 128, 237, 0.15);
+}
