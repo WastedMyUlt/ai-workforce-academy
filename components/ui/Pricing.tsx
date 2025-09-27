@@ -62,14 +62,14 @@ export default function Pricing() {
   ]
 
   return (
-    <div className="bg-gray-50 py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold uppercase tracking-wide text-[#8F00FF]">Pricing</h2>
-          <p className="mt-2 text-3xl font-extrabold tracking-tight text-[#3137fd] sm:text-4xl">
+    <section id="pricing" className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-2 bg-[#9B51E0]/10 text-[#9B51E0] text-sm font-semibold uppercase tracking-wide rounded-full mb-4">Pricing</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#2F80ED] mb-6">
             The right price for your AI journey
-          </p>
-          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
+          </h2>
+          <p className="text-xl text-gray-600">
             Choose the plan that works best for your business needs
           </p>
         </div>
@@ -79,8 +79,8 @@ export default function Pricing() {
             <button
               type="button"
               className={`relative w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium ${
-                !annual ? 'bg-[#3137fd] text-white shadow-sm' : 'text-gray-700'
-              } focus:z-10 focus:outline-none focus:ring-2 focus:ring-[#3137fd]`}
+                !annual ? 'bg-[var(--primary)] text-white shadow-sm' : 'text-gray-700'
+              } focus:z-10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]`}
               onClick={toggleBilling}
             >
               Monthly billing
@@ -88,8 +88,8 @@ export default function Pricing() {
             <button
               type="button"
               className={`relative ml-0.5 w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium ${
-                annual ? 'bg-[#00B8D4] text-white shadow-sm' : 'text-gray-700'
-              } focus:z-10 focus:outline-none focus:ring-2 focus:ring-[#3137fd]`}
+                annual ? 'bg-[var(--accent)] text-white shadow-sm' : 'text-gray-700'
+              } focus:z-10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]`}
               onClick={toggleBilling}
             >
               Annual billing
@@ -97,27 +97,27 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-12 space-y-4 sm:mt-16 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:gap-8">
           {tiers.map((tier) => (
-            <div key={tier.id} className={`divide-y divide-gray-200 rounded-lg border shadow-sm ${tier.mostPopular ? 'border-[#3137fd] shadow-md' : 'border-gray-200'}`}>
+            <div key={tier.id} className={`relative rounded-2xl border shadow-lg hover-card ${tier.mostPopular ? 'border-[var(--primary)] shadow-xl scale-105' : 'border-gray-200'} bg-white overflow-hidden`}>
               {tier.mostPopular && (
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 transform rounded-full bg-[#00B8D4] px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 transform rounded-full bg-[var(--accent)] px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                   Most popular
                 </div>
               )}
-              <div className="p-6">
-                <h3 className="text-lg font-medium leading-6 text-gray-900">{tier.name}</h3>
-                <p className="mt-4 text-sm text-gray-500">{tier.description}</p>
-                <p className="mt-8">
-                  <span className="text-4xl font-extrabold text-gray-900">{annual ? tier.price.annually : tier.price.monthly}</span>
-                  <span className="text-base font-medium text-gray-500">/month</span>
-                </p>
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{tier.name}</h3>
+                <p className="text-gray-600 mb-8">{tier.description}</p>
+                <div className="mb-8">
+                  <span className="text-5xl font-extrabold text-gray-900">{annual ? tier.price.annually : tier.price.monthly}</span>
+                  <span className="text-lg font-medium text-gray-500">/month</span>
+                </div>
                 <a
                   href={tier.href}
                   className={`mt-8 block w-full rounded-md border border-transparent px-6 py-3 text-center text-sm font-medium ${
                     tier.mostPopular
-                      ? 'bg-[#3137fd] text-white hover:bg-[#2a30e3]'
-                      : 'bg-[#00B8D4] text-white hover:bg-[#0093A8]'
+                      ? 'btn-primary'
+                      : 'btn-accent'
                   }`}
                 >
                   Get started with {tier.name}
@@ -140,6 +140,6 @@ export default function Pricing() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

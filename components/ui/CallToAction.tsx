@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EmailForm from './EmailForm'
 
 export default function CallToAction() {
   return (
@@ -32,27 +33,13 @@ export default function CallToAction() {
               Join our waitlist for exclusive founding member benefits and pricing.
             </p>
           </div>
-          <div className="mt-8 lg:mt-0 lg:ml-8">
-            <form className="sm:flex">
-              <label htmlFor="email-address" className="sr-only">Email address</label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="w-full px-5 py-3 placeholder-gray-500 focus:ring-white focus:border-white sm:max-w-xs border-white rounded-md text-gray-900"
-                placeholder="Enter your email"
-              />
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-[#0A0F1C] bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
-                >
-                  Join Waitlist
-                </button>
-              </div>
-            </form>
+          <div className="mt-8 lg:mt-0 lg:ml-8 max-w-md">
+            <EmailForm 
+              source="cta-waitlist"
+              placeholder="Enter your email"
+              buttonText="Join Waitlist"
+              className="[&_input]:border-white [&_input]:focus:ring-white [&_button]:bg-white [&_button]:text-[#0A0F1C] [&_button]:hover:bg-gray-100"
+            />
           </div>
         </div>
       </div>

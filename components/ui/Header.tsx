@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Logo from './Logo'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,17 +29,23 @@ export default function Header() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Logo size="small" />
+              <Image
+                src="/cropped-logo.png"
+                alt="AI Workforce Academy"
+                width={160}
+                height={40}
+                priority
+              />
             </Link>
             <nav className="hidden md:ml-10 md:flex md:space-x-8">
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+                <button className="inline-flex items-center px-1 pt-1 pb-4 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                   AI Agents
                   <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-                <div className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
+                <div className="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                       <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
@@ -64,20 +70,20 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+              <a href="#how-it-works" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 How It Works
-              </Link>
-              <Link href="#" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+              </a>
+              <a href="#pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 Pricing
-              </Link>
+              </a>
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+                <button className="inline-flex items-center px-1 pt-1 pb-4 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                   Resources
                   <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-                <div className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
+                <div className="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                       <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">

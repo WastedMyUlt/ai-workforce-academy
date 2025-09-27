@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import EmailForm from './EmailForm'
 
 export default function Hero() {
   return (
-    <div className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section id="home" className="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden min-h-screen flex items-center">
       {/* Background decorative elements */}
       <div className="hidden lg:block lg:absolute lg:inset-0">
         <svg
@@ -21,7 +22,7 @@ export default function Hero() {
               height="20"
               patternUnits="userSpaceOnUse"
             >
-              <rect x="0" y="0" width="4" height="4" className="text-[#3137fd] opacity-10" fill="currentColor" />
+              <rect x="0" y="0" width="4" height="4" className="text-[#2F80ED] opacity-10" fill="currentColor" />
             </pattern>
           </defs>
           <rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
@@ -42,53 +43,38 @@ export default function Hero() {
               height="20"
               patternUnits="userSpaceOnUse"
             >
-              <rect x="0" y="0" width="4" height="4" className="text-[#00B8D4] opacity-10" fill="currentColor" />
+              <rect x="0" y="0" width="4" height="4" className="text-[#9B51E0] opacity-10" fill="currentColor" />
             </pattern>
           </defs>
           <rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9c)" />
         </svg>
       </div>
 
-      <div className="relative pt-6 pb-16 sm:pb-24 lg:pb-32">
-        <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
+      <div className="relative w-full py-12 sm:py-16 lg:py-20">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <h1>
-                <span className="block text-sm font-semibold uppercase tracking-wide text-[#8F00FF]">Introducing</span>
-                <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl xl:text-6xl">
+              <div className="space-y-4">
+                <span className="inline-block px-4 py-2 bg-[#9B51E0]/10 text-[#9B51E0] text-sm font-semibold uppercase tracking-wide rounded-full">Introducing AI Workforce Academy</span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight">
                   <span className="gradient-text">Build Your AI<br />Workforce Today</span>
-                </span>
-              </h1>
-              <p className="mt-3 text-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                </h1>
+              </div>
+              <p className="mt-6 text-lg sm:text-xl lg:text-xl text-gray-600 max-w-2xl">
                 Transform your business with an AI workforce that works 24/7. Learn to build, deploy, and monetize AI agents in 30 days - without coding skills.
               </p>
               
-              <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
-                <p className="text-base font-medium text-gray-900">Join our waitlist for early access.</p>
-                <form action="#" className="mt-3 sm:flex">
-                  <div className="min-w-0 flex-1">
-                    <label htmlFor="email" className="sr-only">Email address</label>
-                    <input 
-                      id="email" 
-                      type="email" 
-                      placeholder="Enter your email" 
-                      className="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00B8D4] focus:ring-offset-gray-100" 
-                    />
-                  </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <button 
-                      type="submit" 
-                      className="block w-full py-3 px-4 rounded-md shadow bg-[#3137fd] text-white font-medium hover:bg-[#2a30e3] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3137fd] focus:ring-offset-gray-100"
-                    >
-                      Get Started
-                    </button>
-                  </div>
-                </form>
-                <p className="mt-3 text-sm text-gray-500">
-                  We care about your data. Read our{' '}
-                  <Link href="#" className="font-medium text-gray-900 underline">
-                    Privacy Policy
-                  </Link>
+              <div className="mt-10 space-y-6">
+                <div className="max-w-md">
+                  <EmailForm 
+                    source="hero"
+                    placeholder="Enter your email"
+                    buttonText="Get Started"
+                    className=""
+                  />
+                </div>
+                <p className="text-sm text-gray-500">
+                  Join 10,000+ businesses transforming with AI. No spam, unsubscribe anytime.
                 </p>
               </div>
 
@@ -129,19 +115,19 @@ export default function Hero() {
               <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
                 <button
                   type="button"
-                  className="relative block w-full bg-white rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00B8D4]"
+                  className="relative block w-full bg-white rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)]"
                 >
                   <span className="sr-only">Watch our video to learn more</span>
                   <div className="w-full aspect-w-16 aspect-h-9 bg-gray-300">
                     <div className="w-full h-full flex items-center justify-center">
-                      <svg className="h-20 w-20 text-[#3137fd]" fill="currentColor" viewBox="0 0 84 84">
+                      <svg className="h-20 w-20 text-[#2F80ED]" fill="currentColor" viewBox="0 0 84 84">
                         <circle opacity="0.9" cx="42" cy="42" r="42" fill="white" />
                         <path d="M55 41.5L36 55V28L55 41.5Z" fill="currentColor" />
                       </svg>
                     </div>
                   </div>
                   <div className="absolute inset-0 w-full h-full flex items-center justify-center" aria-hidden="true">
-                    <svg className="h-20 w-20 text-[#3137fd]" fill="none" viewBox="0 0 84 84">
+                    <svg className="h-20 w-20 text-[#2F80ED]" fill="none" viewBox="0 0 84 84">
                       <circle opacity="0.5" cx="42" cy="42" r="42" fill="white" />
                       <path d="M55 41.5L36 55V28L55 41.5Z" fill="currentColor" />
                     </svg>
@@ -155,6 +141,6 @@ export default function Hero() {
           </div>
         </main>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,42 +1,54 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50">
-      <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div className="col-span-2">
-            <div className="text-lg font-bold text-[#0B3D91]">AI Workforce Academy</div>
-            <p className="mt-2 text-sm text-gray-500">
-              © {new Date().getFullYear()} AI Workforce Academy. All rights reserved.
+    <footer className="bg-[#0A0F1C] text-white">
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+          <div className="md:col-span-2">
+            <Image
+              src="/cropped-logo.png"
+              alt="AI Workforce Academy"
+              width={200}
+              height={50}
+              className="mb-6 brightness-0 invert"
+            />
+            <p className="text-gray-300 text-lg max-w-md leading-relaxed">
+              Transform your business with an AI workforce that works 24/7. Build, deploy, and monetize AI agents without coding skills.
             </p>
+            <div className="mt-8">
+              <p className="text-sm text-gray-400">
+                © {new Date().getFullYear()} AI Workforce Academy. All rights reserved.
+              </p>
+            </div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-700 tracking-wider uppercase">Company</h3>
-            <ul className="mt-4 space-y-4">
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-6">Company</h3>
+            <ul className="space-y-4">
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
+                <Link href="#" className="text-gray-300 hover:text-[#2F80ED] transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Blog
+                <Link href="#" className="text-gray-300 hover:text-[#2F80ED] transition-colors">
+                  How It Works
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
+                <Link href="#" className="text-gray-300 hover:text-[#2F80ED] transition-colors">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
+                <Link href="#" className="text-gray-300 hover:text-[#2F80ED] transition-colors">
                   Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-300 hover:text-[#2F80ED] transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -72,31 +84,31 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-700 tracking-wider uppercase">AI Agents</h3>
-            <ul className="mt-4 space-y-4">
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-6">AI Agents</h3>
+            <ul className="space-y-4">
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Content Creation
+                <Link href="#" className="text-gray-300 hover:text-[#9B51E0] transition-colors">
+                  Content Creation Agent
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Lead Research
+                <Link href="#" className="text-gray-300 hover:text-[#9B51E0] transition-colors">
+                  Lead Research Agent
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Client Outreach
+                <Link href="#" className="text-gray-300 hover:text-[#9B51E0] transition-colors">
+                  Customer Support Agent
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Customer Support
+                <Link href="#" className="text-gray-300 hover:text-[#9B51E0] transition-colors">
+                  Sales Automation Agent
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-gray-500 hover:text-gray-900">
-                  Data Analysis
+                <Link href="#" className="text-gray-300 hover:text-[#9B51E0] transition-colors">
+                  All Agents
                 </Link>
               </li>
             </ul>
