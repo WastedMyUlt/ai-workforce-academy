@@ -93,7 +93,8 @@ export default function LeadResearchAgentCourse() {
   const progress = (completedLessons.length / lessons.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <Layout>
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -133,13 +134,15 @@ export default function LeadResearchAgentCourse() {
                   <button
                     key={lesson.id}
                     onClick={() => setCurrentLesson(lesson.id)}
-                    className={`w-full text-left p-3 rounded-lg transition-colors ${
+                    className={`w-full text-left p-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#2F80ED] focus:ring-offset-2 ${
                       currentLesson === lesson.id
                         ? 'bg-[#2F80ED] text-white'
                         : completedLessons.includes(lesson.id)
                         ? 'bg-green-50 text-green-800 border border-green-200'
                         : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
+                    aria-pressed={currentLesson === lesson.id}
+                    aria-describedby={`lesson-${lesson.id}-description`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
@@ -169,19 +172,58 @@ export default function LeadResearchAgentCourse() {
               {/* Course Resources */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <h4 className="font-semibold text-gray-900 mb-3">Course Resources</h4>
-                <div className="space-y-2">
-                  <a href="/resources/lead-research/make-workflow-template.txt" download className="block text-sm text-[#2F80ED] hover:underline">
-                    📄 Make.com Workflow Template
-                  </a>
-                  <a href="/resources/lead-research/google-sheets-template.csv" download className="block text-sm text-[#2F80ED] hover:underline">
-                    📊 Google Sheets Template
-                  </a>
-                  <a href="/resources/lead-research/prompt-library.txt" download className="block text-sm text-[#2F80ED] hover:underline">
-                    🤖 ChatGPT Prompt Library
-                  </a>
-                  <a href="/resources/lead-research/setup-checklist.md" download className="block text-sm text-[#2F80ED] hover:underline">
-                    📋 Setup Checklist
-                  </a>
+                <div className="space-y-3">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-sm text-gray-600 mb-3">Download these professional templates and guides to implement your AI Lead Research Agent:</p>
+                    <div className="space-y-2">
+                      <a href="/resources/make-workflow-template.json" download className="flex items-center text-sm text-[#2F80ED] hover:underline">
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Make.com Workflow Template (JSON) - Complete automation blueprint
+                      </a>
+                      <a href="/resources/workflow-setup-guide.md" download className="flex items-center text-sm text-[#2F80ED] hover:underline">
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Complete Setup Guide - Step-by-step implementation
+                      </a>
+                      <a href="/resources/lead-tracking-template.csv" download className="flex items-center text-sm text-[#2F80ED] hover:underline">
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Google Sheets Template - Ready-to-use tracking spreadsheet
+                      </a>
+                      <a href="/resources/chatgpt-prompt-library.md" download className="flex items-center text-sm text-[#2F80ED] hover:underline">
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        ChatGPT Prompt Library - Industry-specific qualification prompts
+                      </a>
+                      <a href="/resources/setup-checklist.md" download className="flex items-center text-sm text-[#2F80ED] hover:underline">
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Complete Setup Checklist - Phase-by-phase implementation guide
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <p className="text-xs text-blue-800">
+                      <strong>💡 Pro Tip:</strong> Start with the Setup Checklist, then import the Make.com template. Use the Prompt Library to customize for your industry.
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-[#2F80ED] to-[#9B51E0] p-4 rounded-lg">
+                    <div className="flex items-center justify-between text-white">
+                      <div>
+                        <h4 className="font-semibold">🚀 Implementation Dashboard</h4>
+                        <p className="text-sm opacity-90">Track your progress with our interactive checklist and resource manager</p>
+                      </div>
+                      <Link href="/dashboard" className="bg-white text-[#2F80ED] px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                        Open Dashboard
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,9 +266,9 @@ export default function LeadResearchAgentCourse() {
 
                 {/* Lesson Content Based on Current Lesson */}
                 {currentLesson === 1 && (
-                  <div className="prose max-w-none">
-                    <h3>Welcome to the AI Lead Research Agent Course!</h3>
-                    <p>In this course, you'll learn to build an AI agent that automatically finds and qualifies leads for your business. By the end, you'll have a system that:</p>
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">Welcome to the AI Lead Research Agent Course!</h3>
+                    <p className="text-gray-700">In this course, you'll learn to build an AI agent that automatically finds and qualifies leads for your business. By the end, you'll have a system that:</p>
                     <ul>
                       <li>Finds 25-100+ qualified leads per day</li>
                       <li>Researches each company automatically</li>
@@ -234,30 +276,30 @@ export default function LeadResearchAgentCourse() {
                       <li>Delivers results to your preferred tools</li>
                     </ul>
                     
-                    <h4>What You'll Need:</h4>
+                    <h4 className="text-gray-900">What You'll Need:</h4>
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <ul className="space-y-2">
-                        <li><strong>Apollo.io account</strong> - Lead database ($49/month)</li>
-                        <li><strong>Make.com account</strong> - Automation platform ($9/month)</li>
-                        <li><strong>OpenAI API key</strong> - AI processing ($5-10/month)</li>
-                        <li><strong>Google account</strong> - For sheets and storage (free)</li>
+                      <ul className="space-y-2 text-gray-700">
+                        <li><strong className="text-gray-900">Apollo.io account</strong> - Lead database ($49/month)</li>
+                        <li><strong className="text-gray-900">Make.com account</strong> - Automation platform ($9/month)</li>
+                        <li><strong className="text-gray-900">OpenAI API key</strong> - AI processing ($5-10/month)</li>
+                        <li><strong className="text-gray-900">Google account</strong> - For sheets and storage (free)</li>
                       </ul>
                     </div>
 
-                    <h4>Expected Results:</h4>
-                    <p>Students typically see results within 24 hours of setup and achieve ROI within the first week. The average student saves 15-20 hours per week on lead research.</p>
+                    <h4 className="text-gray-900">Expected Results:</h4>
+                    <p className="text-gray-700">Students typically see results within 24 hours of setup and achieve ROI within the first week. The average student saves 15-20 hours per week on lead research.</p>
                   </div>
                 )}
 
                 {currentLesson === 2 && (
-                  <div className="prose max-w-none">
-                    <h3>Setting Up Apollo.io for Lead Generation</h3>
-                    <p>Apollo.io will be your lead database. We'll configure it to find your ideal customers automatically.</p>
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">Setting Up Apollo.io for Lead Generation</h3>
+                    <p className="text-gray-700">Apollo.io will be your lead database. We'll configure it to find your ideal customers automatically.</p>
                     
-                    <h4>Step 1: Define Your Ideal Customer Profile</h4>
+                    <h4 className="text-gray-900">Step 1: Define Your Ideal Customer Profile</h4>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p><strong>Example ICP:</strong></p>
-                      <ul>
+                      <p className="text-gray-700"><strong className="text-gray-900">Example ICP:</strong></p>
+                      <ul className="text-gray-700">
                         <li>Industry: SaaS, E-commerce, Marketing Agencies</li>
                         <li>Company Size: 10-500 employees</li>
                         <li>Job Titles: CEO, Marketing Director, Operations Manager</li>
@@ -266,8 +308,128 @@ export default function LeadResearchAgentCourse() {
                       </ul>
                     </div>
 
-                    <h4>Step 2: Create Your Search Template</h4>
-                    <p>We'll save this search as a template so your automation can use it repeatedly.</p>
+                    <h4 className="text-gray-900">Step 2: Create Your Search Template</h4>
+                    <p className="text-gray-700">We'll save this search as a template so your automation can use it repeatedly.</p>
+                  </div>
+                )}
+
+                {currentLesson === 3 && (
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">Building the Make.com Workflow</h3>
+                    <p className="text-gray-700">Now we'll create the automation workflow that connects all your tools together.</p>
+                    
+                    <h4 className="text-gray-900">Step 1: Import the Workflow Template</h4>
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <p className="text-gray-700"><strong className="text-gray-900">Download the template:</strong></p>
+                      <ul className="text-gray-700">
+                        <li>Go to the Course Resources section</li>
+                        <li>Download "Make.com Workflow Template"</li>
+                        <li>Import it into your Make.com account</li>
+                      </ul>
+                    </div>
+
+                    <h4 className="text-gray-900">Step 2: Configure the Modules</h4>
+                    <p className="text-gray-700">The workflow includes these key modules:</p>
+                    <ul className="text-gray-700">
+                      <li><strong className="text-gray-900">Apollo Search:</strong> Finds companies matching your ICP</li>
+                      <li><strong className="text-gray-900">Data Enrichment:</strong> Gathers additional company information</li>
+                      <li><strong className="text-gray-900">OpenAI Analysis:</strong> Scores and qualifies each lead</li>
+                      <li><strong className="text-gray-900">Google Sheets:</strong> Stores results in your tracking sheet</li>
+                    </ul>
+
+                    <h4 className="text-gray-900">Step 3: Test the Workflow</h4>
+                    <p className="text-gray-700">Run a test with 5 leads to ensure everything works correctly before scaling up.</p>
+                  </div>
+                )}
+
+                {currentLesson === 4 && (
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">AI Prompt Engineering for Lead Qualification</h3>
+                    <p className="text-gray-700">The key to effective lead qualification is crafting the right prompts for ChatGPT.</p>
+                    
+                    <h4 className="text-gray-900">Lead Scoring Prompt Template</h4>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-gray-700"><strong className="text-gray-900">Example Prompt:</strong></p>
+                      <blockquote className="text-gray-600 italic border-l-4 border-[#2F80ED] pl-4">
+                        "Analyze this company and score it from 0-100 based on fit for [YOUR SERVICE]. 
+                        Consider: industry relevance, company size, growth indicators, technology stack, and recent news. 
+                        Provide score and 2-sentence justification."
+                      </blockquote>
+                    </div>
+
+                    <h4 className="text-gray-900">Customization Guidelines</h4>
+                    <ul className="text-gray-700">
+                      <li>Replace [YOUR SERVICE] with your specific offering</li>
+                      <li>Add industry-specific criteria</li>
+                      <li>Include budget indicators if relevant</li>
+                      <li>Specify geographic preferences</li>
+                    </ul>
+
+                    <h4 className="text-gray-900">Advanced Prompts</h4>
+                    <p className="text-gray-700">Use the Prompt Library resource for specialized prompts for different industries and use cases.</p>
+                  </div>
+                )}
+
+                {currentLesson === 5 && (
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">Testing & Optimization</h3>
+                    <p className="text-gray-700">Now it's time to test your agent and optimize for better results.</p>
+                    
+                    <h4 className="text-gray-900">Initial Testing Phase</h4>
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <p className="text-gray-700"><strong className="text-gray-900">Testing Checklist:</strong></p>
+                      <ul className="text-gray-700">
+                        <li>Run workflow with 10 test leads</li>
+                        <li>Check data accuracy in Google Sheets</li>
+                        <li>Verify AI scoring makes sense</li>
+                        <li>Test error handling and edge cases</li>
+                      </ul>
+                    </div>
+
+                    <h4 className="text-gray-900">Common Issues & Fixes</h4>
+                    <ul className="text-gray-700">
+                      <li><strong className="text-gray-900">Low-quality leads:</strong> Refine your Apollo search criteria</li>
+                      <li><strong className="text-gray-900">Inconsistent scoring:</strong> Improve your ChatGPT prompts</li>
+                      <li><strong className="text-gray-900">Missing data:</strong> Check API connections and rate limits</li>
+                      <li><strong className="text-gray-900">Workflow errors:</strong> Review Make.com execution logs</li>
+                    </ul>
+
+                    <h4 className="text-gray-900">Performance Metrics</h4>
+                    <p className="text-gray-700">Track these KPIs: lead volume, qualification accuracy, time saved, and conversion rates.</p>
+                  </div>
+                )}
+
+                {currentLesson === 6 && (
+                  <div className="prose max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
+                    <h3 className="text-gray-900">Scaling & Advanced Features</h3>
+                    <p className="text-gray-700">Ready to scale to 100+ leads per day? Here's how to do it safely and effectively.</p>
+                    
+                    <h4 className="text-gray-900">Scaling Strategy</h4>
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <p className="text-gray-700"><strong className="text-gray-900">Scaling Timeline:</strong></p>
+                      <ul className="text-gray-700">
+                        <li><strong className="text-gray-900">Week 1:</strong> 10-25 leads/day (testing phase)</li>
+                        <li><strong className="text-gray-900">Week 2:</strong> 25-50 leads/day (optimization)</li>
+                        <li><strong className="text-gray-900">Week 3:</strong> 50-100 leads/day (full scale)</li>
+                        <li><strong className="text-gray-900">Week 4+:</strong> 100+ leads/day (maintenance)</li>
+                      </ul>
+                    </div>
+
+                    <h4 className="text-gray-900">Advanced Features</h4>
+                    <ul className="text-gray-700">
+                      <li><strong className="text-gray-900">Multi-source research:</strong> Add LinkedIn, company websites</li>
+                      <li><strong className="text-gray-900">CRM integration:</strong> Connect to HubSpot, Salesforce</li>
+                      <li><strong className="text-gray-900">Email verification:</strong> Add email validation steps</li>
+                      <li><strong className="text-gray-900">Lead nurturing:</strong> Trigger follow-up sequences</li>
+                    </ul>
+
+                    <h4 className="text-gray-900">Maintenance & Monitoring</h4>
+                    <p className="text-gray-700">Set up weekly reviews to monitor performance, update prompts, and maintain data quality.</p>
+
+                    <div className="bg-[#2F80ED]/10 p-4 rounded-lg mt-6">
+                      <h4 className="text-[#2F80ED] font-semibold">🎉 Congratulations!</h4>
+                      <p className="text-gray-700">You've completed the Lead Research Agent course. Your agent should now be finding and qualifying 100+ leads per day automatically!</p>
+                    </div>
                   </div>
                 )}
 
@@ -319,5 +481,6 @@ export default function LeadResearchAgentCourse() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }

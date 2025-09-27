@@ -40,57 +40,70 @@ export default function Header() {
             </Link>
             <nav className="hidden md:ml-10 md:flex md:space-x-8">
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 pb-4 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+                <button 
+                  className="inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 hover:text-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED] focus:ring-offset-2"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="AI Agents menu"
+                >
                   AI Agents
-                  <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                      <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                        <div className="ml-4">
-                          <p className="text-base font-medium text-gray-900">Content Creation Agent</p>
-                          <p className="mt-1 text-sm text-gray-500">Automate your content production</p>
-                        </div>
-                      </Link>
-                      <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                      <Link href="/courses/lead-research-agent" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">Lead Research Agent</p>
-                          <p className="mt-1 text-sm text-gray-500">Find and qualify prospects 24/7</p>
+                          <p className="mt-1 text-sm text-gray-500">FREE course - Find 100+ prospects daily</p>
                         </div>
                       </Link>
-                      <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                      <Link href="/ai-agents" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                         <div className="ml-4">
-                          <p className="text-base font-medium text-gray-900">All Agents</p>
+                          <p className="text-base font-medium text-gray-900">All AI Agents</p>
                           <p className="mt-1 text-sm text-gray-500">Browse our complete agent library</p>
+                        </div>
+                      </Link>
+                      <Link href="/courses" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                        <div className="ml-4">
+                          <p className="text-base font-medium text-gray-900">Courses & Training</p>
+                          <p className="mt-1 text-sm text-gray-500">Step-by-step tutorials and guides</p>
                         </div>
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <Link href="/courses" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+              <Link href="/courses" className="inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
                 Courses
               </Link>
-              <Link href="/#how-it-works" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
+              <Link href="/#how-it-works" className="inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 How It Works
               </Link>
-              <Link href="/#pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
+              <Link href="/#pricing" className="inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 Pricing
               </Link>
               <div className="relative group">
-                <button className="inline-flex items-center px-1 pt-1 pb-4 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+                <button 
+                  className="inline-flex items-center px-1 py-2 text-sm font-medium text-gray-600 hover:text-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED] focus:ring-offset-2"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Resources menu"
+                >
                   Resources
-                  <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
-                <div className="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block">
+                <div className="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 hidden group-hover:block group-focus-within:block">
                   <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                      <Link href="#" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                      <Link 
+                        href="/blog" 
+                        className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2F80ED] focus:ring-offset-2 cursor-pointer"
+                      >
                         <div className="ml-4">
                           <p className="text-base font-medium text-gray-900">Blog</p>
                           <p className="mt-1 text-sm text-gray-500">Latest AI automation strategies</p>
@@ -120,8 +133,10 @@ export default function Header() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2F80ED]"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{isMenuOpen ? "Close main menu" : "Open main menu"}</span>
               {!isMenuOpen ? (
                 <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />

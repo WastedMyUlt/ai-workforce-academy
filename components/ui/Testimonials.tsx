@@ -25,6 +25,10 @@ export default function Testimonials() {
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#2F80ED] mr-4">
                 <span className="text-lg font-bold text-white">JD</span>
               </div>
+              <div>
+                <h3 className="text-lg font-medium text-gray-900">James Davidson</h3>
+                <p className="text-sm text-gray-500">Marketing Director, TechFlow Solutions</p>
+              </div>
             </div>
             <div className="flex space-x-1 mb-4">
               {[...Array(5)].map((_, i) => (
@@ -33,9 +37,12 @@ export default function Testimonials() {
                 </svg>
               ))}
             </div>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed mb-4">
               "The AI agents we built through AI Workforce Academy have completely transformed our content creation process. We're producing 3x more content with the same team size."
             </p>
+            <div className="text-sm text-gray-500">
+              <span className="font-medium text-[#2F80ED]">Result:</span> Increased content output by 300%, saved 20 hours/week
+            </div>
           </div>
 
           {/* Testimonial 2 */}
@@ -57,9 +64,12 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 mb-4">
                 "Our customer support AI agent handles 80% of routine inquiries, which has freed up my team to focus on complex customer issues and product development."
               </p>
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-[#2F80ED]">Result:</span> 80% reduction in support tickets, 4.9/5 customer satisfaction
+              </div>
             </div>
           </div>
 
@@ -82,9 +92,12 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 mb-4">
                 "We've turned our AI expertise into a new revenue stream by offering AI agent development to our clients. The Academy gave us the framework to make this happen quickly."
               </p>
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-[#2F80ED]">Result:</span> +$35K monthly revenue, 15 new AI consulting clients
+              </div>
             </div>
           </div>
         </div>

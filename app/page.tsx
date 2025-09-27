@@ -4,7 +4,8 @@ import Features from '../components/ui/Features';
 import HowItWorks from '../components/ui/HowItWorks';
 import Pricing from '../components/ui/Pricing';
 import Testimonials from '../components/ui/Testimonials';
-import CTA from '../components/ui/CTA';
+import CaseStudies from '../components/ui/CaseStudies';
+import FAQ from '../components/ui/FAQ';
 import StructuredData from '../components/seo/StructuredData';
 
 export default function Home() {
@@ -16,8 +17,9 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <Testimonials />
+      <CaseStudies />
       <Pricing />
-      <CTA />
+      <FAQ />
     </Layout>
   );
 }
