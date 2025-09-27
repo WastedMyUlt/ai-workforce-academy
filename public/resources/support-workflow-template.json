@@ -1,0 +1,224 @@
+{
+  "name": "AI Customer Support Agent - Complete Workflow",
+  "description": "Automated customer support workflow using AI for ticket classification, response generation, and escalation management",
+  "version": "1.0",
+  "modules": [
+    {
+      "id": 1,
+      "app": "webhook",
+      "operation": "customWebhook",
+      "name": "Support Ticket Webhook",
+      "parameters": {
+        "hook": "/support-ticket-trigger",
+        "method": "POST"
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "app": "text-parser",
+      "operation": "parseText",
+      "name": "Parse Ticket Content",
+      "parameters": {
+        "pattern": "{{ticket.subject}}\\n{{ticket.description}}\\n{{ticket.customer_info}}",
+        "global": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "app": "openai",
+      "operation": "createChatCompletion",
+      "name": "AI Ticket Classification",
+      "parameters": {
+        "model": "gpt-4",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a customer support ticket classifier. Analyze the ticket and classify it into one of these categories: TECHNICAL, BILLING, GENERAL, URGENT, REFUND. Also determine priority (HIGH, MEDIUM, LOW) and suggest initial response approach."
+          },
+          {
+            "role": "user",
+            "content": "Subject: {{2.subject}}\nDescription: {{2.description}}\nCustomer: {{2.customer_info}}"
+          }
+        ],
+        "temperature": 0.3,
+        "max_tokens": 200
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 4,
+      "app": "router",
+      "operation": "route",
+      "name": "Priority Router",
+      "routes": [
+        {
+          "condition": "{{contains(3.choices[0].message.content, 'HIGH')}}",
+          "label": "High Priority"
+        },
+        {
+          "condition": "{{contains(3.choices[0].message.content, 'URGENT')}}",
+          "label": "Urgent"
+        },
+        {
+          "condition": "default",
+          "label": "Standard"
+        }
+      ],
+      "metadata": {
+        "designer": {
+          "x": 900,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 5,
+      "app": "openai",
+      "operation": "createChatCompletion",
+      "name": "Generate AI Response",
+      "parameters": {
+        "model": "gpt-4",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a helpful customer support agent. Generate a professional, empathetic response to the customer's inquiry. Be specific and actionable. Include next steps when appropriate."
+          },
+          {
+            "role": "user",
+            "content": "Customer Issue: {{2.description}}\nClassification: {{3.choices[0].message.content}}\nCustomer Info: {{2.customer_info}}"
+          }
+        ],
+        "temperature": 0.7,
+        "max_tokens": 300
+      },
+      "metadata": {
+        "designer": {
+          "x": 1200,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 6,
+      "app": "zendesk",
+      "operation": "updateTicket",
+      "name": "Update Zendesk Ticket",
+      "parameters": {
+        "ticket_id": "{{ticket.id}}",
+        "status": "pending",
+        "comment": {
+          "body": "{{5.choices[0].message.content}}",
+          "public": true,
+          "author_id": "{{support_agent_id}}"
+        },
+        "priority": "{{lower(3.priority)}}",
+        "tags": ["ai-processed", "{{3.category}}"]
+      },
+      "metadata": {
+        "designer": {
+          "x": 1500,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 7,
+      "app": "google-sheets",
+      "operation": "addRow",
+      "name": "Log to Support Analytics",
+      "parameters": {
+        "spreadsheet_id": "{{support_analytics_sheet_id}}",
+        "range": "Support_Log!A:H",
+        "values": [
+          "{{formatDate(now, 'YYYY-MM-DD HH:mm:ss')}}",
+          "{{ticket.id}}",
+          "{{ticket.customer_email}}",
+          "{{3.category}}",
+          "{{3.priority}}",
+          "{{ticket.subject}}",
+          "AI_PROCESSED",
+          "{{5.response_length}}"
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 1800,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 8,
+      "app": "slack",
+      "operation": "sendMessage",
+      "name": "Notify Support Team",
+      "parameters": {
+        "channel": "#customer-support",
+        "text": "🎫 New ticket processed by AI\n*Ticket:* {{ticket.id}}\n*Priority:* {{3.priority}}\n*Category:* {{3.category}}\n*Customer:* {{ticket.customer_email}}\n*Status:* Response sent automatically",
+        "username": "Support AI Bot",
+        "icon_emoji": ":robot_face:"
+      },
+      "filter": {
+        "condition": "{{3.priority = 'HIGH' or 3.category = 'URGENT'}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 2,
+      "target": 3
+    },
+    {
+      "source": 3,
+      "target": 4
+    },
+    {
+      "source": 4,
+      "target": 5
+    },
+    {
+      "source": 5,
+      "target": 6
+    },
+    {
+      "source": 6,
+      "target": 7
+    },
+    {
+      "source": 7,
+      "target": 8
+    }
+  ],
+  "settings": {
+    "execution": "auto",
+    "max_cycles": 1,
+    "timeout": 300
+  }
+}

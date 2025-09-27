@@ -180,6 +180,215 @@ export default function CourseDashboard() {
             </div>
           </div>
 
+          {/* What You'll Build Overview */}
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6 mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">🎯 What You'll Build</h2>
+            {courseConfig.id === 'content-creator-ai' && (
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Automated Content System</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• AI generates blog posts from topics</li>
+                    <li>• Auto-creates social media posts</li>
+                    <li>• Generates featured images</li>
+                    <li>• Publishes to WordPress as drafts</li>
+                    <li>• Schedules social media posts</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">What You'll Save</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• <strong>20+ hours/week</strong> on content creation</li>
+                    <li>• <strong>$2,000+/month</strong> on content writers</li>
+                    <li>• <strong>10+ hours/week</strong> on social media</li>
+                    <li>• Consistent publishing schedule</li>
+                    <li>• Professional content quality</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            {courseConfig.id === 'lead-research-agent' && (
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Automated Lead System</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• Finds 25-100+ qualified leads daily</li>
+                    <li>• AI scores leads 0-100</li>
+                    <li>• Tracks leads in Google Sheets</li>
+                    <li>• Sends Slack notifications</li>
+                    <li>• Industry-specific qualification</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">What You'll Save</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• <strong>15+ hours/week</strong> on lead research</li>
+                    <li>• <strong>$3,000+/month</strong> on lead gen tools</li>
+                    <li>• <strong>50%+ higher</strong> conversion rates</li>
+                    <li>• Consistent lead pipeline</li>
+                    <li>• Better lead quality</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            {courseConfig.id === 'customer-support-ai' && (
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">AI Support System</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• AI classifies support tickets</li>
+                    <li>• Generates professional responses</li>
+                    <li>• Routes urgent tickets automatically</li>
+                    <li>• Updates Zendesk tickets</li>
+                    <li>• Tracks support analytics</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">What You'll Save</h3>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• <strong>30+ hours/week</strong> on support</li>
+                    <li>• <strong>$4,000+/month</strong> on support staff</li>
+                    <li>• <strong>80%+ faster</strong> response times</li>
+                    <li>• 24/7 support coverage</li>
+                    <li>• Consistent response quality</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            <div className="mt-4 p-3 bg-white rounded-lg border border-blue-200">
+              <p className="text-sm text-gray-700">
+                <strong>💡 How it works:</strong> Follow the step-by-step tasks below. Each task has detailed instructions. 
+                Download the resources to get templates and workflows. Use the external tools to set up your accounts.
+              </p>
+            </div>
+          </div>
+
+          {/* Course Lessons Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-gray-900">📚 Course Lessons</h2>
+              <Link 
+                href={`/courses/${courseId}`}
+                className="text-[#2F80ED] hover:underline text-sm font-medium"
+              >
+                View All Lessons →
+              </Link>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Need detailed instructions? Access the step-by-step course lessons with screenshots, code examples, and troubleshooting guides.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {courseConfig.id === 'lead-research-agent' && (
+                <>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 1: Setup & Overview</div>
+                    <div className="text-sm text-gray-600 mt-1">Account setup and workflow overview</div>
+                  </Link>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 2: Make.com Configuration</div>
+                    <div className="text-sm text-gray-600 mt-1">Import and configure the workflow</div>
+                  </Link>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 3: API Connections</div>
+                    <div className="text-sm text-gray-600 mt-1">Connect Apollo.io and OpenAI APIs</div>
+                  </Link>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 4: AI Prompt Customization</div>
+                    <div className="text-sm text-gray-600 mt-1">Customize prompts for your industry</div>
+                  </Link>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 5: Testing & Optimization</div>
+                    <div className="text-sm text-gray-600 mt-1">Test workflow and optimize results</div>
+                  </Link>
+                  <Link 
+                    href="/courses/lead-research-agent#lesson-6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 6: Scaling & Advanced</div>
+                    <div className="text-sm text-gray-600 mt-1">Scale to 100+ leads per day</div>
+                  </Link>
+                </>
+              )}
+              {courseConfig.id === 'customer-support-ai' && (
+                <>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-1`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 1: Support AI Overview</div>
+                    <div className="text-sm text-gray-600 mt-1">Understanding AI customer support</div>
+                  </Link>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-2`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 2: Zendesk Integration</div>
+                    <div className="text-sm text-gray-600 mt-1">Connect and configure Zendesk</div>
+                  </Link>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-3`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 3: AI Classification</div>
+                    <div className="text-sm text-gray-600 mt-1">Set up ticket classification</div>
+                  </Link>
+                </>
+              )}
+              {courseConfig.id === 'content-creator-ai' && (
+                <>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-1`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 1: Content Strategy</div>
+                    <div className="text-sm text-gray-600 mt-1">Plan your content calendar</div>
+                  </Link>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-2`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 2: WordPress Setup</div>
+                    <div className="text-sm text-gray-600 mt-1">Configure WordPress and Buffer</div>
+                  </Link>
+                  <Link 
+                    href={`/courses/${courseId}#lesson-3`}
+                    className="block p-4 border border-gray-200 rounded-lg hover:border-[#2F80ED] hover:bg-blue-50 transition-colors"
+                  >
+                    <div className="font-medium text-gray-900">Lesson 3: AI Content Generation</div>
+                    <div className="text-sm text-gray-600 mt-1">Set up automated content creation</div>
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+
           {/* Progress Overview */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
             <div className="flex items-center justify-between mb-4">
@@ -384,6 +593,8 @@ export default function CourseDashboard() {
                   
                   <Link
                     href={`/courses/${courseId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                   >
                     <span className="text-lg mr-3">📚</span>

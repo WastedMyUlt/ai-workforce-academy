@@ -62,13 +62,38 @@ export default function LeadResearchAgentCourse() {
   const [currentLesson, setCurrentLesson] = useState(1);
   const [completedLessons, setCompletedLessons] = useState<number[]>([]);
 
+  // Handle URL hash navigation (e.g., #lesson-1, #lesson-2)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#lesson-')) {
+        const lessonNumber = parseInt(hash.replace('#lesson-', ''));
+        if (lessonNumber >= 1 && lessonNumber <= lessons.length) {
+          setCurrentLesson(lessonNumber);
+        }
+      }
+    };
+
+    // Check hash on initial load
+    handleHashChange();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   // Load/save progress from localStorage
   useEffect(() => {
     try {
       const saved = localStorage.getItem('lead-research-progress')
       if (saved) {
         const { current, completed } = JSON.parse(saved)
-        if (typeof current === 'number') setCurrentLesson(current)
+        if (typeof current === 'number') {
+          // Only set from localStorage if there's no hash in URL
+          if (!window.location.hash.startsWith('#lesson-')) {
+            setCurrentLesson(current)
+          }
+        }
         if (Array.isArray(completed)) setCompletedLessons(completed)
       }
     } catch {}
@@ -87,6 +112,12 @@ export default function LeadResearchAgentCourse() {
     if (!completedLessons.includes(lessonId)) {
       setCompletedLessons([...completedLessons, lessonId]);
     }
+  };
+
+  const navigateToLesson = (lessonId: number) => {
+    setCurrentLesson(lessonId);
+    // Update URL hash without triggering page reload
+    window.history.pushState(null, '', `#lesson-${lessonId}`);
   };
 
   const currentLessonData = lessons.find(lesson => lesson.id === currentLesson);
@@ -133,7 +164,7 @@ export default function LeadResearchAgentCourse() {
                 {lessons.map((lesson) => (
                   <button
                     key={lesson.id}
-                    onClick={() => setCurrentLesson(lesson.id)}
+                    onClick={() => navigateToLesson(lesson.id)}
                     className={`w-full text-left p-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#2F80ED] focus:ring-offset-2 ${
                       currentLesson === lesson.id
                         ? 'bg-[#2F80ED] text-white'

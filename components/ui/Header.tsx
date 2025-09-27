@@ -1,13 +1,16 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import SignInModal from '../auth/SignInModal';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  
+  const [signInModalOpen, setSignInModalOpen] = useState(false)
+  const [user, setUser] = useState<any>(null)
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -20,6 +23,14 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  useEffect(() => {
+    // Check if user is signed in
+    const userData = localStorage.getItem('user')
+    if (userData) {
+      setUser(JSON.parse(userData))
     }
   }, [])
 
@@ -122,12 +133,39 @@ export default function Header() {
             </nav>
           </div>
           <div className="hidden md:flex items-center">
-            <Link href="#" className="text-sm font-medium text-[#2F80ED] hover:underline">
-              Sign In
+            <Link href="/dashboard" className="text-sm font-medium text-gray-600 hover:text-[#2F80ED] mr-6">
+              Dashboard
             </Link>
-            <Link href="#" className="btn-primary ml-8">
-              Get Started
-            </Link>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-gray-600">Welcome, {user.name}!</span>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('user');
+                    setUser(null);
+                    window.location.href = '/';
+                  }}
+                  className="text-sm font-medium text-gray-600 hover:text-[#2F80ED]"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={() => setSignInModalOpen(true)}
+                  className="text-sm font-medium text-[#2F80ED] hover:underline"
+                >
+                  Sign In
+                </button>
+                <button
+                  onClick={() => setSignInModalOpen(true)}
+                  className="btn-primary ml-8"
+                >
+                  Get Started
+                </button>
+              </>
+            )}
           </div>
           <div className="-mr-2 flex items-center md:hidden">
             <button
@@ -155,6 +193,9 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="pt-2 pb-3 space-y-1">
+            <Link href="/dashboard" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
+              Dashboard
+            </Link>
             <Link href="#" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
               AI Agents
             </Link>
@@ -184,6 +225,12 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      {/* Sign In Modal */}
+      <SignInModal 
+        isOpen={signInModalOpen} 
+        onClose={() => setSignInModalOpen(false)} 
+      />
     </header>
   )
 }

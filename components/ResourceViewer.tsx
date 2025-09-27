@@ -34,20 +34,46 @@ export default function ResourceViewer({ isOpen, onClose, resourceId, courseId, 
   const loadResourceContent = async () => {
     setLoading(true);
     try {
-      // In a real app, this would fetch from an API
-      // For now, we'll simulate the content based on resourceId
-      const simulatedContent = getSimulatedContent(resourceId);
-      setContent(simulatedContent);
+      // Map resourceId to actual file paths
+      const resourceMap: Record<string, string> = {
+        // Lead Research Agent resources
+        'make-workflow': '/resources/make-workflow-template.json',
+        'setup-guide': '/resources/workflow-setup-guide.md',
+        'tracking-template': '/resources/lead-tracking-template.csv',
+        'prompt-library': '/resources/chatgpt-prompt-library.md',
+        'setup-checklist': '/resources/setup-checklist.md',
+        
+        // Customer Support AI resources
+        'support-workflow': '/resources/support-workflow-template.json',
+        'knowledge-base-template': '/resources/knowledge-base-template.md',
+        
+        // Content Creator AI resources
+        'content-workflow': '/resources/content-workflow-template.json',
+        'content-templates': '/resources/content-templates.md'
+      };
+
+      const filePath = resourceMap[resourceId];
+      if (!filePath) {
+        throw new Error(`Resource not found: ${resourceId}`);
+      }
+
+      const response = await fetch(filePath);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch resource: ${response.statusText}`);
+      }
+
+      const fileContent = await response.text();
+      setContent(fileContent);
       
       if (resourceId.includes('checklist')) {
-        parseChecklistItems(simulatedContent);
+        parseChecklistItems(fileContent);
       }
       
       // Load saved progress for checklists
       loadChecklistProgress();
     } catch (error) {
       console.error('Error loading resource:', error);
-      setContent('Error loading resource content.');
+      setContent('Error loading resource content. Please check that the file exists.');
     } finally {
       setLoading(false);
     }

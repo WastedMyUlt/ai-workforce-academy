@@ -451,7 +451,7 @@ export const customerSupportAIConfig: CourseConfig = {
 export const contentCreatorAIConfig: CourseConfig = {
   id: 'content-creator-ai',
   title: 'AI Content Creator Agent',
-  description: 'Build an automated content creation and publishing system',
+  description: 'Build an automated content creation and publishing system that generates blog posts, social media content, and marketing materials using AI',
   estimatedDays: 18,
   color: 'from-purple-500 to-pink-600',
   icon: '✍️',
@@ -459,20 +459,20 @@ export const contentCreatorAIConfig: CourseConfig = {
     {
       id: 1,
       title: 'Content Strategy Setup',
-      description: 'Define content strategy and platforms',
+      description: 'Define your content strategy, target audience, and publishing platforms',
       tasks: [
         {
           id: 'define-content-strategy',
-          title: 'Define Content Strategy',
-          description: 'Plan your content calendar and topics',
+          title: 'Define Content Strategy & Calendar',
+          description: 'STEP 1: Download the Content Templates resource below. STEP 2: Use the Monthly Content Planning template to create your content calendar. STEP 3: Define your target audience, content pillars, and publishing schedule. STEP 4: Set up a Google Sheets content calendar using the provided template.',
           priority: 'high',
           estimatedTime: '90 min',
           phase: 1
         },
         {
           id: 'setup-cms',
-          title: 'Configure Content Management',
-          description: 'Set up WordPress or content platform',
+          title: 'Set Up WordPress & Publishing Accounts',
+          description: 'STEP 1: Create WordPress.com account (or use existing). STEP 2: Create Buffer.com account for social media scheduling. STEP 3: Connect your social media accounts (LinkedIn, Twitter, Facebook, Instagram) to Buffer. STEP 4: Test posting manually to ensure all connections work.',
           priority: 'high',
           estimatedTime: '60 min',
           phase: 1
@@ -481,21 +481,21 @@ export const contentCreatorAIConfig: CourseConfig = {
     },
     {
       id: 2,
-      title: 'AI Content Generation',
-      description: 'Set up automated content creation',
+      title: 'AI Content Generation Setup',
+      description: 'Configure AI tools and templates for automated content creation',
       tasks: [
         {
           id: 'setup-content-ai',
-          title: 'Configure Content AI',
-          description: 'Set up AI for blog posts and social media',
+          title: 'Import Make.com Content Workflow',
+          description: 'STEP 1: Download the Content Workflow Template (JSON file) from resources below. STEP 2: Log into Make.com and create new scenario. STEP 3: Import the JSON workflow template. STEP 4: Connect your OpenAI API key. STEP 5: Connect WordPress and Buffer accounts. STEP 6: Test the workflow with sample content.',
           priority: 'high',
           estimatedTime: '75 min',
           phase: 2
         },
         {
           id: 'create-templates',
-          title: 'Create Content Templates',
-          description: 'Build reusable content templates',
+          title: 'Customize AI Content Templates',
+          description: 'STEP 1: Open the Content Templates Library resource. STEP 2: Choose 3-5 templates that match your content strategy. STEP 3: Customize the AI prompts with your brand voice and industry. STEP 4: Test each template by generating sample content. STEP 5: Refine prompts based on output quality.',
           priority: 'medium',
           estimatedTime: '45 min',
           phase: 2
@@ -505,20 +505,20 @@ export const contentCreatorAIConfig: CourseConfig = {
     {
       id: 3,
       title: 'Publishing Automation',
-      description: 'Automate content publishing across platforms',
+      description: 'Automate content publishing and distribution across all platforms',
       tasks: [
         {
           id: 'setup-publishing',
-          title: 'Configure Auto-Publishing',
-          description: 'Set up automated publishing to multiple platforms',
+          title: 'Configure Automated Publishing Schedule',
+          description: 'STEP 1: Set up your content calendar in Google Sheets with publish dates. STEP 2: Configure the Make.com workflow to check your calendar daily. STEP 3: Set up automatic posting schedules in Buffer (e.g., LinkedIn at 9 AM, Twitter at 2 PM). STEP 4: Test the full automation with one piece of content.',
           priority: 'high',
           estimatedTime: '60 min',
           phase: 3
         },
         {
           id: 'test-content-flow',
-          title: 'Test Content Workflow',
-          description: 'Run end-to-end content creation test',
+          title: 'Run Full Content Creation Test',
+          description: 'STEP 1: Add a test topic to your content calendar. STEP 2: Trigger the Make.com workflow manually. STEP 3: Verify AI generates blog post, social media posts, and featured image. STEP 4: Check that content publishes to WordPress as draft. STEP 5: Confirm social media posts are scheduled in Buffer. STEP 6: Review and approve content quality.',
           priority: 'high',
           estimatedTime: '45 min',
           phase: 3
