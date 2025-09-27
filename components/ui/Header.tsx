@@ -70,6 +70,9 @@ export default function Header() {
                   </div>
                 </div>
               </div>
+              <Link href="/courses" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED]">
+                Courses
+              </Link>
               <a href="#how-it-works" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-600 hover:text-[#2F80ED] scroll-smooth">
                 How It Works
               </a>
