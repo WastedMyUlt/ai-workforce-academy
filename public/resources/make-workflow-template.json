@@ -1,29 +1,13 @@
 {
-  "name": "AI Lead Research Agent - Complete Workflow",
-  "description": "Automated lead research workflow that finds, qualifies, and scores prospects using Apollo.io, OpenAI, and Google Sheets",
-  "version": "1.0",
+  "name": "AI Lead Research Agent - Beginner Workflow",
+  "description": "Simple lead research workflow using Apollo List Accounts, OpenAI for scoring, and Google Sheets for storage",
+  "version": "2.0",
   "modules": [
     {
       "id": 1,
-      "app": "webhook",
-      "operation": "customWebhook",
-      "name": "Webhook Trigger",
-      "parameters": {
-        "hook": "/lead-research-trigger",
-        "method": "POST"
-      },
-      "metadata": {
-        "designer": {
-          "x": 0,
-          "y": 0
-        }
-      }
-    },
-    {
-      "id": 2,
       "app": "apollo",
-      "operation": "searchPeople",
-      "name": "Apollo - Search Companies",
+      "operation": "listAccounts",
+      "name": "Apollo - List Accounts",
       "parameters": {
         "person_titles": ["CEO", "Founder", "Marketing Director", "VP Marketing", "Head of Marketing"],
         "organization_num_employees_ranges": ["11,50", "51,200", "201,500"],

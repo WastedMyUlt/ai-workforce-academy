@@ -1,0 +1,50 @@
+{
+  "name": "AI Lead Research Agent - Simple Workflow",
+  "description": "Beginner-friendly workflow: Apollo List Accounts → OpenAI Scoring → Google Sheets",
+  "version": "2.0",
+  "note": "This is a simplified template for beginners. Follow the course instructions to configure each module.",
+  "setup_instructions": {
+    "important": "DO NOT import this template directly into Make.com - it's for reference only",
+    "instead": "Follow the step-by-step instructions in Lessons 3-5 to build this workflow manually",
+    "why": "Building it yourself ensures you understand each step and can troubleshoot issues",
+    "modules_to_add": [
+      "1. Apollo - List Accounts (returns company data with industry, employee count, etc.)",
+      "2. OpenAI - Create a Chat Completion (scores leads using AI)",
+      "3. Google Sheets - Add a Row (stores qualified leads)"
+    ],
+    "configuration_guide": {
+      "apollo": {
+        "module": "List Accounts",
+        "settings": {
+          "account_stage_ids": ["Cold"],
+          "limit": 10,
+          "connection": "Your Apollo API key"
+        }
+      },
+      "openai": {
+        "module": "Create a Chat Completion",
+        "settings": {
+          "model": "gpt-3.5-turbo",
+          "max_tokens": 200,
+          "temperature": 0.3,
+          "prompt": "See Lesson 4 for the complete prompt template"
+        }
+      },
+      "google_sheets": {
+        "module": "Add a Row",
+        "settings": {
+          "spreadsheet": "AI Lead Research - Qualified Leads",
+          "sheet": "Sheet1",
+          "columns": ["Company Name", "Industry", "Size", "Location", "AI Score", "Justification", "Next Action", "Date Added"]
+        }
+      }
+    }
+  },
+  "why_build_manually": [
+    "Better understanding of how each module works",
+    "Easier to troubleshoot when things go wrong",
+    "Learn to customize for your specific needs",
+    "Avoid import errors and module reference issues",
+    "The course provides step-by-step instructions for everything"
+  ]
+}

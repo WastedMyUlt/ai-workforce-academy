@@ -285,6 +285,18 @@ export default function ContentCreatorAICourse() {
                       </div>
                     </div>
                     
+                    <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                      <h4>💰 Realistic Revenue Expectations:</h4>
+                      <p className="text-sm text-blue-700 mb-2"><strong>Important:</strong> Revenue depends on your existing business, audience, and marketing skills.</p>
+                      <ul className="text-sm space-y-1">
+                        <li><strong>LinkedIn Articles:</strong> $200-1,000/month typical, $2,000+ with established expertise</li>
+                        <li><strong>Medium + Newsletter:</strong> $50-500/month typical, $1,000+ with large following</li>
+                        <li><strong>Social Media Only:</strong> $100-800/month typical, $2,000+ with strong personal brand</li>
+                        <li><strong>WordPress Blog:</strong> $300-1,500/month typical, $3,000+ with SEO success</li>
+                      </ul>
+                      <p className="text-xs text-blue-600 mt-2"><strong>Timeline:</strong> Most users see meaningful results in 3-6 months, not weeks.</p>
+                    </div>
+
                     <h4>What You'll Learn:</h4>
                     <ul>
                       <li>How to define your target audience and content pillars</li>
@@ -322,18 +334,6 @@ export default function ContentCreatorAICourse() {
                   <div>
                     <h3>Publishing Platform Setup</h3>
                     <p>Choose your content publishing strategy based on your goals and budget. You can generate revenue with any of these options!</p>
-                    
-                    <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                      <h4>💰 Realistic Revenue Expectations:</h4>
-                      <p className="text-sm text-blue-700 mb-2"><strong>Important:</strong> Revenue depends on your existing business, audience, and marketing skills.</p>
-                      <ul className="text-sm space-y-1">
-                        <li><strong>LinkedIn Articles:</strong> $200-1,000/month typical, $2,000+ with established expertise</li>
-                        <li><strong>Medium + Newsletter:</strong> $50-500/month typical, $1,000+ with large following</li>
-                        <li><strong>Social Media Only:</strong> $100-800/month typical, $2,000+ with strong personal brand</li>
-                        <li><strong>WordPress Blog:</strong> $300-1,500/month typical, $3,000+ with SEO success</li>
-                      </ul>
-                      <p className="text-xs text-blue-600 mt-2"><strong>Timeline:</strong> Most users see meaningful results in 3-6 months, not weeks.</p>
-                    </div>
 
                     <h4>Choose Your Publishing Strategy:</h4>
                     
@@ -480,44 +480,47 @@ export default function ContentCreatorAICourse() {
                       <p>Test each connection individually before running the full workflow to identify any issues early.</p>
                     </div>
 
-                    {/* Interactive Workflow Tester */}
+                    {/* Workflow Validation Checklist */}
                     <div className="mt-6 p-4 bg-purple-50 border-l-4 border-[#9B51E0] rounded-r-lg">
-                      <h5 className="font-semibold text-[#9B51E0] mb-3">🔧 Interactive: Test Your Workflow</h5>
-                      <p className="text-sm text-gray-700 mb-4">Validate your Make.com setup before proceeding:</p>
+                      <h5 className="font-semibold text-[#9B51E0] mb-3">✅ Checkpoint: Validate Your Setup</h5>
+                      <p className="text-sm text-gray-700 mb-4">Before moving forward, manually test each connection in Make.com:</p>
                       
-                      <div className="grid md:grid-cols-2 gap-4 mb-4">
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
-                            <span className="text-sm font-medium">OpenAI Connection</span>
-                            <button className="text-xs bg-[#9B51E0] text-white px-3 py-1 rounded hover:bg-purple-600">
-                              Test API
-                            </button>
+                      <div className="space-y-3">
+                        <label className="flex items-start space-x-3 p-3 bg-white rounded-lg border">
+                          <input type="checkbox" className="mt-1 text-[#9B51E0] focus:ring-[#9B51E0]" />
+                          <div>
+                            <div className="text-sm font-medium">OpenAI API Connection</div>
+                            <div className="text-xs text-gray-600">Test by running a simple content generation in Make.com</div>
                           </div>
-                          <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
-                            <span className="text-sm font-medium">Buffer Connection</span>
-                            <button className="text-xs bg-[#9B51E0] text-white px-3 py-1 rounded hover:bg-purple-600">
-                              Test API
-                            </button>
+                        </label>
+                        
+                        <label className="flex items-start space-x-3 p-3 bg-white rounded-lg border">
+                          <input type="checkbox" className="mt-1 text-[#9B51E0] focus:ring-[#9B51E0]" />
+                          <div>
+                            <div className="text-sm font-medium">Buffer Connection</div>
+                            <div className="text-xs text-gray-600">Verify Buffer can post to your connected social accounts</div>
                           </div>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
-                            <span className="text-sm font-medium">Google Sheets</span>
-                            <button className="text-xs bg-[#9B51E0] text-white px-3 py-1 rounded hover:bg-purple-600">
-                              Test Access
-                            </button>
+                        </label>
+                        
+                        <label className="flex items-start space-x-3 p-3 bg-white rounded-lg border">
+                          <input type="checkbox" className="mt-1 text-[#9B51E0] focus:ring-[#9B51E0]" />
+                          <div>
+                            <div className="text-sm font-medium">Google Sheets Access</div>
+                            <div className="text-xs text-gray-600">Test reading from and writing to your content calendar sheet</div>
                           </div>
-                          <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
-                            <span className="text-sm font-medium">Full Workflow</span>
-                            <button className="text-xs bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
-                              Run Test
-                            </button>
+                        </label>
+                        
+                        <label className="flex items-start space-x-3 p-3 bg-white rounded-lg border">
+                          <input type="checkbox" className="mt-1 text-[#9B51E0] focus:ring-[#9B51E0]" />
+                          <div>
+                            <div className="text-sm font-medium">End-to-End Test</div>
+                            <div className="text-xs text-gray-600">Run the complete workflow once manually to verify all steps work</div>
                           </div>
-                        </div>
+                        </label>
                       </div>
                       
-                      <div className="p-3 bg-gray-100 rounded-lg text-sm text-gray-600">
-                        <strong>Status:</strong> Click "Test API" buttons above to validate each connection. All should show green checkmarks before proceeding.
+                      <div className="mt-4 p-3 bg-yellow-100 rounded-lg text-sm text-yellow-800">
+                        <strong>💡 Tip:</strong> If any step fails, check your API keys, permissions, and connection settings in Make.com before proceeding.
                       </div>
                     </div>
                   </div>
@@ -527,6 +530,11 @@ export default function ContentCreatorAICourse() {
                   <div>
                     <h3>AI Content Templates</h3>
                     <p>Customize AI prompts and content templates to match your brand voice and industry expertise.</p>
+                    
+                    <div className="bg-yellow-50 p-4 rounded-lg mb-6">
+                      <h5>⚠️ Reality Check</h5>
+                      <p className="text-sm text-yellow-800">AI-generated content requires human review and editing. Budget 15-30 minutes per piece for quality control, fact-checking, and personalization.</p>
+                    </div>
                     
                     <h4>What You'll Learn:</h4>
                     <ul>
@@ -584,6 +592,11 @@ export default function ContentCreatorAICourse() {
                   <div>
                     <h3>Publishing Automation</h3>
                     <p>Set up automated publishing schedules and multi-platform distribution to maximize your content reach.</p>
+                    
+                    <div className="bg-orange-50 p-4 rounded-lg mb-6">
+                      <h5>⚠️ Important</h5>
+                      <p className="text-sm text-orange-800">Start with manual publishing for your first 10-20 pieces to ensure quality and engagement. Only automate once you're confident in your content quality and audience response.</p>
+                    </div>
                     
                     <h4>What You'll Learn:</h4>
                     <ul>
